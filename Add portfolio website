@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabi Ahmed - iOS Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .title {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+            font-size: 1.8em;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .company-info h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        .company-info .position {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .duration {
+            color: #666;
+            font-weight: 500;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .project-tech {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skills-category h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Education */
+        .education-item {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
+
+        .education-item h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .education-item .institution {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item .details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            top: 10%;
+            left: 10%;
+            width: 100px;
+            height: 100px;
+            background: #667eea;
+            border-radius: 50%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            top: 60%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            background: #764ba2;
+            border-radius: 30%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            bottom: 20%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            background: #667eea;
+            border-radius: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shape shape-1"></div>
+    <div class="floating-shape shape-2"></div>
+    <div class="floating-shape shape-3"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="profile-img">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1>Rabi Ahmed</h1>
+            <p class="title">iOS Developer</p>
+            <div class="contact-info">
+                <a href="tel:+923217933571" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0321-7933571</span>
+                </a>
+                <a href="mailto:shkrabi721@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>shkrabi721@gmail.com</span>
+                </a>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Faisalabad, Pakistan</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Career Profile -->
+        <section class="section">
+            <h2><i class="fas fa-user-tie"></i> Career Profile</h2>
+            <p>A computer science graduate who is seeking to find the opportunity to work in a fun and challenging working environment that will encourage him to improve and learn new and necessary skills as well as be motivated by the company to do his best for the sake of helping himself and the company advance in the software engineering industry.</p>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+            <h2><i class="fas fa-briefcase"></i> Development Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Eclix Tech</h3>
+                        <p class="position">iOS Developer</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Usman Heights, Gateway Square Satiana Road, Faisalabad</p>
+                    </div>
+                    <span class="duration">2024 - Present</span>
+                </div>
+                <p>Currently working as an iOS Developer providing services on various innovative projects.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Dzine Media</h3>
+                        <p class="position">iOS Developer</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Amin Town, Canal Road, Faisalabad</p>
+                    </div>
+                    <span class="duration">2022 - 2024</span>
+                </div>
+                <p>2+ years of iOS Development Experience working on multiple projects and delivering high-quality mobile applications.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company-info">
+                        <h3>Saamaan.pk</h3>
+                        <p class="position">Shopify Expert</p>
+                    </div>
+                    <span class="duration">2021 - 2022</span>
+                </div>
+                <p>1-year E-commerce Shopify store handling experience, managing and optimizing online store operations.</p>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+            
+            <h3 style="color: #667eea; margin-bottom: 20px;">Eclix Tech Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Chat AI</h4>
+                    <p>An advanced AI-powered photo enhancement app for iOS, leveraging Swift and UIKit to deliver high-quality image processing, chat Models processing and quick responses with history and backup.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>PDF Converter</h4>
+                    <p>Convert your documents to PDF format quickly and easily with our efficient converter tool. Perfect for preserving formatting and sharing files across different platforms.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Photo Translator</h4>
+                    <p>Developed a seamless photo translation experience with Swift and UIKit, enabling real-time translation during live capture from imported photos.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>PDF Scanner</h4>
+                    <p>Build a professional-grade PDF scanner using Swift and UIKit, allowing users to scan documents with precision and convert them into high-quality PDFs.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Photo Enhancer</h4>
+                    <p>Create a powerful photo enhancement tool using Swift and UIKit, designed to improve image quality and apply professional-grade filters with ease.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 40px 0 20px 0;">Dzine Media Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Collage Maker</h4>
+                    <p>Craft stunning collages effortlessly with our app. Combine photos, customize layouts, and share your memories with style. Perfect for creative storytelling.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Background Remover</h4>
+                    <p>Easily remove backgrounds from your photos with our intuitive app. Perfect for creating professional images for presentations, social media, or graphic design projects.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Rephraser</h4>
+                    <p>Revamp your sentences effortlessly with our rephrasing tool. Perfect for enhancing clarity and variety in your writing. Elevate your communication skills!</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>PDF Converter</h4>
+                    <p>Convert your documents to PDF format quickly and easily with our efficient converter tool. Perfect for preserving formatting and sharing files across platforms.</p>
+                </div>
+
+                <div class="project-card">
+                    <span class="project-tech">SWIFT UIKIT</span>
+                    <h4>Image to PDF Converter</h4>
+                    <p>Easily convert images to PDF format offline with our user-friendly converter tool. Perfect for preserving visual content without requiring an internet connection.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <h2><i class="fas fa-code"></i> Skills</h2>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h4>Programming Languages</h4>
+                    <div class="skills-list">
+                        <span class="skill-item">Swift</span>
+                        <span class="skill-item">C#</span>
+                        <span class="skill-item">Java</span>
+                        <span class="skill-item">C/C++</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>iOS Development</h4>
+                    <div class="skills-list">
+                        <span class="skill-item">Swift UIKit</span>
+                        <span class="skill-item">MVVM</span>
+                        <span class="skill-item">MVC</span>
+                        <span class="skill-item">API Integration</span>
+                        <span class="skill-item">CocoaPods</span>
+                        <span class="skill-item">SPM</span>
+                        <span class="skill-item">Ads Integration</span>
+                        <span class="skill-item">SwiftLint</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            
+            <div class="education-item">
+                <h4>BS Computer Science</h4>
+                <p class="institution">Riphah International University</p>
+                <p class="details">2017-2021 | CGPA: 3.40 with Outstanding Academics</p>
+            </div>
+
+            <div class="education-item">
+                <h4>Intermediate of Computer Science</h4>
+                <p class="institution">The Superior College</p>
+                <p class="details">2015-2017 | Grade A in Computer Science</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
